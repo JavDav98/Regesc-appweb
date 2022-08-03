@@ -3,9 +3,6 @@
 
 Proyecto para la clase de DesarrolloWeb Sección A 2022
                                                                     
-                                                                                
-
-
 ## Terminal Commands
 
 1. Install NodeJs from [NodeJs Official Page](https://nodejs.org/en).
