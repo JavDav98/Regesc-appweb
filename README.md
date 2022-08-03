@@ -17,7 +17,7 @@ ng serve
 ```
 Navigate to `http://localhost:4200/`
     
-## Screenshots
+## Screenshotss
 
 ![App Screenshot](https://github.com/JavDav98/DesarrolloWeb/blob/main/src/assets/img/opt_lbd_angular_thumbnail.jpg?raw=true)
 
