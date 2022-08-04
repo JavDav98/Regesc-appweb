@@ -1,1 +1,12 @@
-<p>liststudent works!</p>
+<table class="table table-hover table-striped">
+    <thead>
+    <tr>
+        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of tableData1.dataRows">
+        <td *ngFor="let cell of row">{{cell}}</td>
+    </tr>
+    </tbody>
+</table>

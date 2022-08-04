@@ -9,7 +9,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'pe-7s-bell', class: '' },
     { path: '/nstudent', title: 'Estudiantes',  icon:'pe-7s-id', class: '' },
-    { path: '/ncurso', title: 'Cursos',  icon:'pe-7s-file', class: '' },
+    { path: '/ncurso', title: 'Cursos',  icon:'pe-7s-notebook', class: '' },
     /*,
     { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
     { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
