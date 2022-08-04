@@ -16,7 +16,9 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { NcursoComponent } from '../../ncurso/ncurso.component';
+import { NcursoComponent } from '../../Cursos/ncurso/ncurso.component';
+import { ListarcursoComponent } from '../../Cursos/listarcurso/listarcurso.component';
+import { EditcursoComponent } from '../../Cursos/editcurso/editcurso.component';
 
 @NgModule({
   imports: [
@@ -36,6 +38,8 @@ import { NcursoComponent } from '../../ncurso/ncurso.component';
     NotificationsComponent,
     UpgradeComponent,
     NcursoComponent,
+    ListarcursoComponent,
+    EditcursoComponent
   ]
 })
 

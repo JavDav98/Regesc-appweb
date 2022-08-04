@@ -8,7 +8,9 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { NcursoComponent } from '../../ncurso/ncurso.component';
+import { NcursoComponent } from '../../Cursos/ncurso/ncurso.component';
+import { ListarcursoComponent } from '../../Cursos/listarcurso/listarcurso.component';
+import { EditcursoComponent } from '../../Cursos/editcurso/editcurso.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
@@ -20,4 +22,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'ncurso',        component: NcursoComponent },
+    { path: 'cursolist',        component: ListarcursoComponent },
+    { path: 'cursoedit',        component: EditcursoComponent },
 ];
