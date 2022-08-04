@@ -1,20 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import {RouteInfo} from "../models/route-info"
 
 declare const $: any;
-declare interface RouteInfo {
-    path: string;
-    title: string;
-    icon: string;
-    class: string;
-}
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
     { path: '/table', title: 'Table List',  icon:'pe-7s-note2', class: '' },
     { path: '/typography', title: 'Typography',  icon:'pe-7s-news-paper', class: '' },
     { path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'pe-7s-bell', class: '' },
+    { path: '/nstudent', title: 'Estudiantes',  icon:'pe-7s-id', class: '' },
     { path: '/ncurso', title: 'Cursos',  icon:'pe-7s-file', class: '' },
-    { path: '/nestudiante', title: 'Estudiantes',  icon:'pe-7s-id', class: '' },
     /*,
     { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
     { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },

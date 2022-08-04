@@ -11,6 +11,11 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { NcursoComponent } from '../../Cursos/ncurso/ncurso.component';
 import { ListarcursoComponent } from '../../Cursos/listarcurso/listarcurso.component';
 import { EditcursoComponent } from '../../Cursos/editcurso/editcurso.component';
+import { NewcurseComponent } from '../../Cursos/newcurse/newcurse.component';
+import { NstudentComponent } from '../../Estudiantes/nstudent/nstudent.component';
+import { EditstudentComponent } from '../../Estudiantes/editstudent/editstudent.component';
+import { ListstudentComponent } from '../../Estudiantes/liststudent/liststudent.component';
+import { NewstudentComponent } from '../../Estudiantes/newstudent/newstudent.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
@@ -21,7 +26,22 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
-    { path: 'ncurso',        component: NcursoComponent },
+
+    { path: 'ncurso', component: NcursoComponent, children: [
+            { path: 'list', component: ListarcursoComponent },
+            { path: 'edit', component: EditcursoComponent },
+            { path: 'new', component: NewcurseComponent }
+        ]
+    },
+
+    { path: 'nstudent', component: NstudentComponent, children: [
+            { path: 'list', component: ListstudentComponent },
+            { path: 'edit', component: EditstudentComponent },
+            { path: 'new', component: NewstudentComponent }
+        ]
+    },
+
+    /*{ path: 'ncurso',        component: NcursoComponent },
     { path: 'cursolist',        component: ListarcursoComponent },
-    { path: 'cursoedit',        component: EditcursoComponent },
+    { path: 'cursoedit',        component: EditcursoComponent },*/
 ];

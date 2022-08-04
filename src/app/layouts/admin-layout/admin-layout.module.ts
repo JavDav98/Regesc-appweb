@@ -19,6 +19,10 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { NcursoComponent } from '../../Cursos/ncurso/ncurso.component';
 import { ListarcursoComponent } from '../../Cursos/listarcurso/listarcurso.component';
 import { EditcursoComponent } from '../../Cursos/editcurso/editcurso.component';
+import { NstudentComponent } from '../../Estudiantes/nstudent/nstudent.component';
+import { EditstudentComponent } from '../../Estudiantes/editstudent/editstudent.component';
+import { ListstudentComponent } from '../../Estudiantes/liststudent/liststudent.component';
+import { NewstudentComponent } from '../../Estudiantes/newstudent/newstudent.component';
 
 @NgModule({
   imports: [
@@ -39,7 +43,11 @@ import { EditcursoComponent } from '../../Cursos/editcurso/editcurso.component';
     UpgradeComponent,
     NcursoComponent,
     ListarcursoComponent,
-    EditcursoComponent
+    EditcursoComponent,
+    NewstudentComponent,
+    ListstudentComponent,
+    NstudentComponent,
+    EditstudentComponent
   ]
 })
 

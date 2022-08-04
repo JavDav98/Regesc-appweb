@@ -1,20 +1,18 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
-import {Location} from "@angular/common";
 import {RouteInfo} from "../../models/route-info"
+import {Location} from "@angular/common";
 
-export const ROUTESCURSE: RouteInfo[] = [
-  { path: '/ncurso/new', title: 'Nuevo Curso',  icon:'pe-7s-file', class: '' },
-  { path: '/ncurso/edit', title: 'Editar Curso',  icon:'pe-7s-file', class: '' },
-  { path: '/ncurso/list', title: 'Listar Cursos',  icon:'pe-7s-file', class: '' },
+export const ROUTESTUDENT: RouteInfo[] = [
+  { path: '/nstudent/new', title: 'Nuevo Estudiante',  icon:'pe-7s-file', class: '' },
+  { path: '/nstudent/edit', title: 'Editar Estudiante',  icon:'pe-7s-file', class: '' },
+  { path: '/nstudent/list', title: 'Listar Estudiante',  icon:'pe-7s-file', class: '' },
 ];
-
 @Component({
-  selector: 'app-ncurso',
-  templateUrl: './ncurso.component.html',
-  styleUrls: ['./ncurso.component.scss']
+  selector: 'app-nstudent',
+  templateUrl: './nstudent.component.html',
+  styleUrls: ['./nstudent.component.scss']
 })
-
-export class NcursoComponent implements OnInit {
+export class NstudentComponent implements OnInit {
   private listTitles: any[];
   location: Location;
 
@@ -23,7 +21,7 @@ export class NcursoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listTitles = ROUTESCURSE.filter(listTitle => listTitle);
+    this.listTitles = ROUTESTUDENT.filter(listTitle => listTitle);
   }
 
   getTitle(){
@@ -37,7 +35,7 @@ export class NcursoComponent implements OnInit {
         return this.listTitles[item].title;
       }
     }
-    return 'Cursos';
+    return 'Estudiantes';
   }
 
 }
