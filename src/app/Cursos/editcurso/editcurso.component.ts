@@ -8,6 +8,7 @@ import {CursosService} from "../../../Services/cursos.service";
   styleUrls: ['./editcurso.component.scss']
 })
 export class EditcursoComponent implements OnInit {
+  curso: CurseModel;
 
   constructor(private rutaActiva: ActivatedRoute,
               private cursosService: CursosService) { }
@@ -15,6 +16,7 @@ export class EditcursoComponent implements OnInit {
   ngOnInit(): void {
     const idC = this.rutaActiva.snapshot.paramMap.get('id');
     console.log(this.cursosService.getCursoId(idC));
+    this.curso = this.cursosService.getCursoId(idC);
   }
 
 }
