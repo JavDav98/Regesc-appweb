@@ -5,20 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CursosService {
 
-  cursos: CurseModel[];
-
-  /*
-    new CurseModel(1, 'Precalculo', 'Profe1', 'A'),
-    new CurseModel(2, 'Calculo 1', 'Profe2', 'B'),
-    new CurseModel(3, 'Matemáticas discretas', 'Profe3', 'A'),
-    new CurseModel(4, 'Programación 1', 'Profe4', 'B'),
-    new CurseModel(5, 'Programación 2', 'Profe5', 'A'),
-    new CurseModel(6, 'Programación 3', 'Profe6', 'B'),
-    new CurseModel(7, 'Ética', 'Profe7', 'A'),
-    new CurseModel(8, 'Lógica de sistemas', 'Profe8', 'B'),
-    new CurseModel(9, 'Introducción a sistemas de computación', 'Profe9', 'A'),
-    new CurseModel(10, 'Algoritmos', 'Profe10', 'B')
-  */
+  cursos: Array<CurseModel>;
 
   constructor() {
     this.cursos = [
@@ -38,8 +25,20 @@ export class CursosService {
   getCursos(): Array<CurseModel>{
     return this.cursos;
   }
-/*
+
+  getCurso(c: CurseModel): CurseModel{
+    for (let curso of this.cursos){
+      if (curso == c){
+        return curso
+      }
+    }
+  }
+
+  getCursoId(idCurso){
+    return this.cursos.find(curso => curso.idCurse == idCurso)
+  }
+
   agregarCurso(curso: CurseModel){
     this.cursos.push(curso)
-  }*/
+  }
 }

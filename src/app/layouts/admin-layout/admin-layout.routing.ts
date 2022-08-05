@@ -29,14 +29,14 @@ export const AdminLayoutRoutes: Routes = [
 
     { path: 'ncurso', component: NcursoComponent, children: [
             { path: 'list', component: ListarcursoComponent },
-            { path: 'edit', component: EditcursoComponent },
+            { path: 'edit/:id', component: EditcursoComponent },
             { path: 'new', component: NewcurseComponent }
         ]
     },
 
     { path: 'nstudent', component: NstudentComponent, children: [
             { path: 'list', component: ListstudentComponent },
-            { path: 'edit', component: EditstudentComponent },
+            { path: 'edit/:id', component: EditstudentComponent },
             { path: 'new', component: NewstudentComponent }
         ]
     },

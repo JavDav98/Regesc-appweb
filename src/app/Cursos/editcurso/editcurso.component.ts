@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import {CursosService} from "../../../Services/cursos.service";
 
 @Component({
   selector: 'app-editcurso',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditcursoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rutaActiva: ActivatedRoute,
+              private cursosService: CursosService) { }
 
   ngOnInit(): void {
+    const idC = this.rutaActiva.snapshot.paramMap.get('id');
+    console.log(this.cursosService.getCursoId(idC));
   }
 
 }
