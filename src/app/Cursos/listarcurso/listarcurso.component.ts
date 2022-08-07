@@ -10,7 +10,7 @@ import {CursosService} from "../../../Services/cursos.service";
 
 export class ListarcursoComponent implements OnInit {
   public cursos: Array<CurseModel>;
-  public encabezado: string[] = ['ID', 'Nombre', 'Catedratico', 'Sección'];
+  public encabezado: string[] = ['ID', 'Nombre', 'Catedratico', 'Sección', 'Horario'];
 
   constructor(private cursosService: CursosService) { }
 

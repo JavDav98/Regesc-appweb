@@ -1,12 +1,25 @@
-<table class="table table-hover table-striped">
-    <thead>
-    <tr>
-        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let row of tableData1.dataRows">
-        <td *ngFor="let cell of row">{{cell}}</td>
-    </tr>
-    </tbody>
-</table>
+<div class="content table-responsive table-full-width">
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th *ngFor="let cell of encabezado">{{ cell }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let estudiante of estudiantes">
+            <td>{{estudiante.carnet}}</td>
+            <td>{{estudiante.nombre}}</td>
+            <td>{{estudiante.apellido}}</td>
+            <td>{{estudiante.email}}</td>
+            <td>{{estudiante.tel}}</td>
+            <td>{{estudiante.direccion}}</td>
+            <td>{{formatoFecha(estudiante.nacimiento)}}</td>
+            <td class="td-actions text-right">
+                <a rel="tooltip" title="Editar estudiante" class="btn btn-success btn-simple btn-xs" [routerLink]="['/nstudent/edit/'+estudiante.carnet]">
+                    <i class="fa fa-edit"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -41,7 +41,4 @@ export const AdminLayoutRoutes: Routes = [
         ]
     },
 
-    /*{ path: 'ncurso',        component: NcursoComponent },
-    { path: 'cursolist',        component: ListarcursoComponent },
-    { path: 'cursoedit',        component: EditcursoComponent },*/
 ];

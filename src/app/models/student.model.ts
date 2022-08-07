@@ -1,10 +1,7 @@
 class StudentModel extends PersonaModel{
-    cursosasignados: Array<AsignacionModel>;
-
-    constructor(idPersona: number, nombre: string, apellido: string, email: string, tel: number, direccion: string, nacimiento: any, cursosasignados: Array<AsignacionModel>) {
-       super(idPersona, nombre, apellido, email, tel, direccion, nacimiento);
-       this.cursosasignados = cursosasignados;
-
+    carnet: number;
+    constructor(idPerson: number, nombr: string, apellid: string, emai: string, te: number, direccio: string, nacimient: any, carnet: number) {
+       super(idPerson, nombr, apellid, emai, te, direccio, nacimient);
+       this.carnet = carnet;
     }
-
 }

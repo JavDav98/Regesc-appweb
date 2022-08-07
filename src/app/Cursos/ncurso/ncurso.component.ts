@@ -37,7 +37,7 @@ export class NcursoComponent implements OnInit {
         return this.listTitles[item].title;
       }
     }
-    return 'Editar Curso';
+    return 'Cursos';
   }
 
 }

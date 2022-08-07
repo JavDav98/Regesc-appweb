@@ -1,11 +1,11 @@
 class PersonaModel{
-    private idPersona: number;
-    private nombre: string;
-    private apellido: string;
-    private email: string;
-    private tel: number;
-    private direccion: string;
-    private nacimiento: any;
+    idPersona: number;
+    nombre: string;
+    apellido: string;
+    email: string;
+    tel: number;
+    direccion: string;
+    nacimiento = new Date();
 
     constructor(idPersona: number, nombre: string, apellido: string, email: string, tel: number, direccion: string, nacimiento: any) {
         this.idPersona = idPersona;

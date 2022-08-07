@@ -1,78 +1,138 @@
-<form>
+<!--
+<form (ngSubmit)="submit(formCurse, curso)"
+      #formCurse = "ngForm">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Código de curso</label>
+                <input class="form-control"
+                       type="text"
+                       placeholder="Codigo generado"
+                       id="id-curse"
+                       [(ngModel)]="curso.idCurse"
+                       name="idCurse"
+                       disabled>
+            </div>
+        </div>
+        &lt;!&ndash;<div class="col-md-3">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text"
+                       class="form-control"
+                       name="nombre"
+                       placeholder="Nombre"
+                       #nombre="ngForm"
+                       ngModel
+                       disabled>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label>Sección</label>
+                <input type="text"
+                       class="form-control"
+                       name="seccion"
+                       placeholder="Seccion"
+                       #seccion="ngForm"
+                       ngModel
+                       disabled>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-5">
             <div class="form-group">
-                <label>Company (disabled)</label>
-                <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
+                <label>Catedratico</label>
+                <input type="text"
+                       class="form-control"
+                       name="catedratico"
+                       placeholder="Catedratico"
+                       #catedratico="ngForm"
+                       ngModel
+                       required>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label>Username</label>
-                <input type="text" class="form-control" placeholder="Username" value="michael23">
+                <label>Horario</label>
+                <select type="text"
+                        class="form-select form-control"
+                        name="horario"
+                        placeholder="Seleccione una opción"
+                        #horario="ngForm"
+                        ngModel
+                        disabled>>
+                    <option selected>Seleccione una opción</option>
+                    <option value="07:00 - 09:00">07:00 - 09:00</option>
+                    <option value="09:00 - 11:00">09:00 - 11:00</option>
+                    <option value="11:00 - 13:00">11:00 - 13:00</option>
+                    <option value="14:00 - 16:00">14:00 - 16:00</option>
+                    <option value="16:00 - 18:00">16:00 - 18:00</option>
+                </select>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label>Email address</label>
-                <input type="email" class="form-control" placeholder="Email">
-            </div>
-        </div>
+        </div>&ndash;&gt;
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>First Name</label>
-                <input type="text" class="form-control" placeholder="Company" value="Mike">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label>Address</label>
-                <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label>City</label>
-                <input type="text" class="form-control" placeholder="City" value="Mike">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label>Country</label>
-                <input type="text" class="form-control" placeholder="Country" value="Andrew">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label>Postal Code</label>
-                <input type="number" class="form-control" placeholder="ZIP Code">
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label>About Me</label>
-                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
-            </div>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+    <button type="submit" class="btn btn-info btn-fill pull-right" >Actualizar</button>
     <div class="clearfix"></div>
 </form>
+
+&lt;!&ndash;
+
+<form (ngSubmit)="submit(formCurso, curso)" #formCurso="ngForm">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Código de curso</label>
+                <input type="text" class="form-control" name="idCurse" [(ngModel)]="curso.idCurse" disabled>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="curso.nombre" required>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label>Sección</label>
+                <input type="text" class="form-control" name="seccion" [(ngModel)]="curso.seccion" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label>Catedratico</label>
+                <input type="text" class="form-control"  name="catedratico" [(ngModel)]="curso.catedratico" required>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Horario</label>
+                <select class="form-select form-control" name="horario" [(ngModel)]="curso.horario" required>
+                    <option selected>Seleccione una opción</option>
+                    <option value="07:00 - 09:00">07:00 - 09:00</option>
+                    <option value="09:00 - 11:00">09:00 - 11:00</option>
+                    <option value="11:00 - 13:00">11:00 - 13:00</option>
+                    <option value="14:00 - 16:00">14:00 - 16:00</option>
+                    <option value="16:00 - 18:00">16:00 - 18:00</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-info btn-fill pull-right" >Actualizar</button>
+    <div class="clearfix"></div>
+</form>
+
+<div class="container">Codigo de curso: {{curso.idCurse}}</div>
+<div class="container">Nombre: {{curso.nombre}}</div>
+<div class="container">Seccion: {{curso.seccion}}</div>
+<div class="container">Catedratico: {{curso.catedratico}}</div>
+<div class="container">Horario: {{curso.horario}}</div>
+&ndash;&gt;
+
+-->
