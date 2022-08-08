@@ -31,17 +31,17 @@ export class EditstudentComponent implements OnInit {
       console.log(`Año ${aaaa}, Mes ${mm}, Dia ${dd}`);
       student.nacimiento = new Date(aaaa,mm,dd);
       this.estudianteService.editEstudiante(student);
-      this.showNotification('top','right', 2, "Estudiante actualizado");
+      this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
     }else{
-      this.showNotification('top','right', 4, "Complete todos los campos");
+      this.showNotification('top','right', 4, 'pe-7s-close-circle',"Complete todos los campos");
     }
   }
 
-  showNotification(from, align, color, mensaje){
+  showNotification(from, align, color,ico, mensaje){
     const type = ['','info','success','warning','danger'];
 
     $.notify({
-      icon: "pe-7s-check",
+      icon: ico,
       message: mensaje
     },{
       type: type[color],

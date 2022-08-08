@@ -10,29 +10,31 @@ declare var $:any;
   styleUrls: ['./newcurse.component.scss']
 })
 export class NewcurseComponent implements OnInit {
-  curso: any;
+  curso: any = {idCurse: '', nombre: '', catedratico: '', seccion: '', horario: ''};
 
   constructor(private cursosService: CursosService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 
-  submit(formCurse: NgForm, curse: CurseModel){
-   /* if (formCurse.valid){
-      this.cursosService.editCurso(curse);
-      this.showNotification('top','right', 2, "Curso actualizado");
+  submit(formCurse: NgForm, curse: any){
+    if (formCurse.valid){
+      let c: CurseModel;
+      this.curso.idCurse = c.idCurse;
+      this.curso = this.cursosService.agregarCurso(this.curso);
+      this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
     }else{
-      this.showNotification('top','right', 4, "Complete todos los campos");
-    }*/
+      this.showNotification('top','right', 4, 'pe-7s-close-circle',"Complete todos los campos");
+    }
   }
 
 
-  showNotification(from, align, color, mensaje){
+  showNotification(from, align, color, ico, mensaje){
     const type = ['','info','success','warning','danger'];
 
     $.notify({
-      icon: "pe-7s-check",
+      icon: ico,
       message: mensaje
     },{
       type: type[color],

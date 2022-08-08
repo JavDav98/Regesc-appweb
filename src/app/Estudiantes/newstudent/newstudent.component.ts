@@ -10,7 +10,6 @@ declare var $:any;
   styleUrls: ['./newstudent.component.scss']
 })
 export class NewstudentComponent implements OnInit {
-
   estudiante: any = {idPersona: '', nombre: '', apellido: '', email: '', tel: '', direccion: '', nacimiento: '', fecha: ''};
 
   constructor(private estudianteService: EstudianteService) { }
@@ -26,17 +25,17 @@ export class NewstudentComponent implements OnInit {
       student.nacimiento = new Date(aaaa,mm,dd);
       this.estudiante.carnet = student.carnet;
       student = this.estudianteService.agregarEstudiante(student);
-      this.showNotification('top','right', 2, "Estudiante actualizado");
+      this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
     }else{
-      this.showNotification('top','right', 4, "Complete todos los campos");
+      this.showNotification('top','right', 4, 'pe-7s-close-circle',"Complete todos los campos");
     }
   }
 
-  showNotification(from, align, color, mensaje){
+  showNotification(from, align, color,ico, mensaje){
     const type = ['','info','success','warning','danger'];
 
     $.notify({
-      icon: "pe-7s-check",
+      icon: ico,
       message: mensaje
     },{
       type: type[color],

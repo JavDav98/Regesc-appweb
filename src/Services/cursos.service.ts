@@ -41,6 +41,7 @@ export class CursosService {
 
   agregarCurso(curso: CurseModel){
     this.cursos.push(curso)
+    return curso;
   }
 
   editCurso(c: CurseModel){
