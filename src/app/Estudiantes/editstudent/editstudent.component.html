@@ -53,7 +53,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label>Fecha de nacimiento</label>
-                <input type="date" class="form-control" name="nacimiento" [(ngModel)]="estudiante.nacimiento" min="1950-01-01">
+                <input type="date" class="form-control" name="fecha" [(ngModel)]="estudiante.fecha" required>
             </div>
         </div>
     </div>
@@ -69,3 +69,6 @@
 <div class="container">Telefono: {{estudiante.tel}}</div>
 <div class="container">Direccion: {{estudiante.direccion}}</div>
 <div class="container">Fecha de nacimeinto: {{estudiante.nacimiento}}</div>
+<div class="container">Fecha de nacimeinto: {{estudiante.nacimiento | date: 'yyyy-MM-dd': 'GMT-6': 'es-GT'}}</div>
+<div class="container">Fecha: {{estudiante.fecha}}</div>
+

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import {CursosService} from "../../../Services/cursos.service";
+import { formatDate } from '@angular/common';
 import {EstudianteService} from "../../../Services/estudiante.service";
 
 declare var $:any;
@@ -11,7 +11,7 @@ declare var $:any;
   styleUrls: ['./editstudent.component.scss']
 })
 export class EditstudentComponent implements OnInit {
-  estudiante: StudentModel;
+  estudiante: any;
 
   constructor(private rutaActiva: ActivatedRoute,
               private estudianteService: EstudianteService) { }
@@ -19,18 +19,19 @@ export class EditstudentComponent implements OnInit {
   ngOnInit(): void {
     const idS = this.rutaActiva.snapshot.paramMap.get('id');
     this.estudiante = this.estudianteService.getEstudianteId(idS);
-    console.log(this.formatoFecha(this.estudiante.nacimiento));
+    this.estudiante.fecha = formatDate(this.estudiante.nacimiento, 'yyyy-MM-dd', 'es-GT');
   }
 
-  submit(formStudent: any, student: StudentModel){
+  submit(formStudent: any, student: any){
     if (formStudent.valid){
-      let aaaa: number = +formStudent.value.nacimiento.toString().slice(0, -6);
-      let mm: number = formStudent.value.nacimiento.toString().slice(6, -3)-1;
-      let dd: number = +formStudent.value.nacimiento.toString().slice(-2);
+      console.log(formStudent.value.toString());
+      let aaaa: number = +student.fecha.toString().slice(0, -6);
+      let mm: number = student.fecha.toString().slice(5, -3)-1;
+      let dd: number = +student.fecha.toString().slice(-2);
+      console.log(`Año ${aaaa}, Mes ${mm}, Dia ${dd}`);
       student.nacimiento = new Date(aaaa,mm,dd);
-      console.log(student.nacimiento);
-      //this.estudianteService.editEstudiante(student);
-      //this.showNotification('top','right', 2, "Estudiante actualizado");
+      this.estudianteService.editEstudiante(student);
+      this.showNotification('top','right', 2, "Estudiante actualizado");
     }else{
       this.showNotification('top','right', 4, "Complete todos los campos");
     }

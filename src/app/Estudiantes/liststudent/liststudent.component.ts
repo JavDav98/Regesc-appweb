@@ -17,9 +17,4 @@ export class ListstudentComponent implements OnInit {
     this.estudiantes = this.estudianteService.getEstudiantes();
   }
 
-
-  formatoFecha(date: Date): string{
-    return date.getDate()+"/"+(date.getMonth())+"/"+date.getFullYear();
-  }
-
 }

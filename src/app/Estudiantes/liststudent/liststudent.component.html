@@ -13,7 +13,7 @@
             <td>{{estudiante.email}}</td>
             <td>{{estudiante.tel}}</td>
             <td>{{estudiante.direccion}}</td>
-            <td>{{formatoFecha(estudiante.nacimiento)}}</td>
+            <td>{{estudiante.nacimiento | date: 'dd/MM/yyyy': 'GMT-6': 'es-GT'}}</td>
             <td class="td-actions text-right">
                 <a rel="tooltip" title="Editar estudiante" class="btn btn-success btn-simple btn-xs" [routerLink]="['/nstudent/edit/'+estudiante.carnet]">
                     <i class="fa fa-edit"></i>

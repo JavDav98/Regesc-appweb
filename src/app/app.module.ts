@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -12,7 +12,11 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import {CursosService} from "../Services/cursos.service";
+
+import localePy from '@angular/common/locales/es-GQ'
+import {registerLocaleData} from "@angular/common";
+registerLocaleData(localePy, 'es-GT');
+
 
 @NgModule({
   imports: [
@@ -31,6 +35,7 @@ import {CursosService} from "../Services/cursos.service";
     AdminLayoutComponent,
   ],
   providers: [
+    {provide: LOCALE_ID, useValue: 'es-GT'}
   ],
   bootstrap: [AppComponent]
 })

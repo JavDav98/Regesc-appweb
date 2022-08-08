@@ -10,7 +10,7 @@ export class EstudianteService {
 
   constructor() {
     this.estudiantes = [
-      {idPersona: 1, nombre: 'Francis Javier de Jesús', apellido: 'Dávila Lemus', email: 'javdav1@gmail.com', tel: 45698725, direccion: 'Ciudad de Guatemala', nacimiento: new Date(1998, 6, 25), carnet: 319018158121},
+      {idPersona: 1, nombre: 'Francis Javier de Jesús', apellido: 'Dávila Lemus', email: 'javdav1@gmail.com', tel: 45698725, direccion: 'Ciudad de Guatemala', nacimiento: new Date(1998, 0, 25), carnet: 319018158121},
       {idPersona: 2, nombre: 'Francis ', apellido: 'Dávila Lemus', email: 'javdav@gmail.com2', tel: 95195115, direccion: 'Ciudad de Guatemala', nacimiento: new Date(1995, 11, 17), carnet: 319018158122},
       {idPersona: 3, nombre: 'Javier de Jesús', apellido: 'Dávila Lemus', email: 'javdav@3gmail.com', tel: 26326332, direccion: 'Ciudad de Guatemala', nacimiento: new Date(1995, 11, 17), carnet: 319018158123},
       {idPersona: 4, nombre: 'Francis de Jesús', apellido: 'Dávila Lemus', email: 'javdav@4gmail.com', tel: 48596213, direccion: 'Ciudad de Guatemala', nacimiento: new Date(1995, 11, 17), carnet: 319018158124},
