@@ -1,27 +1,27 @@
-<form (ngSubmit)="submit(formStudent)" #formStudent="ngForm">
+<form (ngSubmit)="submit(formStudent, estudiante)" #formStudent="ngForm">
     <div class="row">
         <div class="col-md-2">
             <div class="form-group">
                 <label>Carnet del estudiante</label>
-                <input type="text" class="form-control" name="carnet" ngModel #carnet="ngModel" disabled>
+                <input type="text" class="form-control" name="carnet" [(ngModel)]="estudiante.carnet" disabled>
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
                 <label>CUI</label>
-                <input type="text" class="form-control" name="idPersona" ngModel #idPersona="ngModel" required>
+                <input type="text" class="form-control" name="idPersona" [(ngModel)]="estudiante.idPersona" required>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label>Nombre</label>
-                <input type="text" class="form-control" name="nombre" ngModel #nombre="ngModel" required>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="estudiante.nombre" required>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label>Apellido</label>
-                <input type="text" class="form-control" name="apellido" ngModel #apellido="ngModel" required>
+                <input type="text" class="form-control" name="apellido" [(ngModel)]="estudiante.apellido" required>
             </div>
         </div>
     </div>
@@ -30,21 +30,21 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label>Correo</label>
-                <input type="text" class="form-control"  name="email" ngModel #email="ngModel" required>
+                <input type="text" class="form-control"  name="email" [(ngModel)]="estudiante.email" required>
             </div>
         </div>
 
         <div class="col-md-2">
             <div class="form-group">
                 <label>Telefono</label>
-                <input type="text" class="form-control"  name="tel" ngModel #tel="ngModel" required>
+                <input type="text" class="form-control"  name="tel" [(ngModel)]="estudiante.tel" required>
             </div>
         </div>
 
         <div class="col-md-5">
             <div class="form-group">
                 <label>Dirección</label>
-                <input type="text" class="form-control"  name="direccion" ngModel #direccion="ngModel" required>
+                <input type="text" class="form-control"  name="direccion" [(ngModel)]="estudiante.direccion" required>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label>Fecha de nacimiento</label>
-                <input type="date" class="form-control" name="fecha" ngModel #carnet="ngModel" required>
+                <input type="date" class="form-control" name="fecha" [(ngModel)]="estudiante.fecha" required>
             </div>
         </div>
     </div>
@@ -61,14 +61,3 @@
     <button type="submit" class="btn btn-info btn-fill pull-right" >Actualizar</button>
     <div class="clearfix"></div>
 </form>
-
-<div class="container">Carnet: {{estudiante.carnet}}</div>
-<div class="container">Nombre: {{estudiante.nombre}}</div>
-<div class="container">Apellido: {{estudiante.apellido}}</div>
-<div class="container">Correo: {{estudiante.email}}</div>
-<div class="container">Telefono: {{estudiante.tel}}</div>
-<div class="container">Direccion: {{estudiante.direccion}}</div>
-<div class="container">Fecha de nacimeinto: {{estudiante.nacimiento}}</div>
-<div class="container">Fecha de nacimeinto: {{estudiante.nacimiento | date: 'yyyy-MM-dd': 'GMT-6': 'es-GT'}}</div>
-<div class="container">Fecha: {{estudiante.fecha}}</div>
-
