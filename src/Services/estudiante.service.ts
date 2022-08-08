@@ -32,6 +32,7 @@ export class EstudianteService {
   }
 
   agregarEstudiante(s: StudentModel){
+    s.carnet = Math.floor(Math.random() * ((31901899999+1) - 31901800000) + 31901800000);
     this.estudiantes.push(s);
   }
 

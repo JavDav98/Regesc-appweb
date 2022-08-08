@@ -52,8 +52,4 @@ export class EditstudentComponent implements OnInit {
       }
     });
   }
-
-  formatoFecha(date: Date): string{
-    return date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
-  }
 }
