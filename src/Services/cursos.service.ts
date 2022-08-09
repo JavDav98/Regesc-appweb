@@ -40,6 +40,7 @@ export class CursosService {
   }
 
   agregarCurso(curso: CurseModel){
+    curso.idCurse = Math.floor(Math.random() * ((30911899999+1) - 30911800000) + 30911800000);
     this.cursos.push(curso)
     return curso;
   }

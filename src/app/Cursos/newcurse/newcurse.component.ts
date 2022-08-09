@@ -20,15 +20,16 @@ export class NewcurseComponent implements OnInit {
 
   submit(formCurse: NgForm, curse: any){
     if (formCurse.valid){
-      let c: CurseModel;
-      this.curso.idCurse = c.idCurse;
-      this.curso = this.cursosService.agregarCurso(this.curso);
-      this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
+      this.curso = this.cursosService.agregarCurso(curse);
+      this.showNotification('top','right', 2, 'pe-7s-check',"Curso Creado");
     }else{
       this.showNotification('top','right', 4, 'pe-7s-close-circle',"Complete todos los campos");
     }
   }
 
+  cleanForm(){
+    this.curso = {idCurse: '', nombre: '', catedratico: '', seccion: '', horario: ''};
+  }
 
   showNotification(from, align, color, ico, mensaje){
     const type = ['','info','success','warning','danger'];

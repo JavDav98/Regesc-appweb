@@ -42,12 +42,14 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-info btn-fill pull-right" >Actualizar</button>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="col-md-1 pull-right">
+            <a (click)="cleanForm()" class="btn btn-info">Nuevo</a>
+        </div>
+        <div class="col-md-1 pull-right">
+            <button type="submit" class="btn btn-info btn-fill">Crear</button>
+        </div>
+    </div>
+
     <div class="clearfix"></div>
 </form>
-
-<div class="container">Codigo de curso: {{curso.idCurse}}</div>
-<div class="container">Nombre: {{curso.nombre}}</div>
-<div class="container">Seccion: {{curso.seccion}}</div>
-<div class="container">Catedratico: {{curso.catedratico}}</div>
-<div class="container">Horario: {{curso.horario}}</div>

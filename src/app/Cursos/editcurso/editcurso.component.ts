@@ -29,6 +29,10 @@ export class EditcursoComponent implements OnInit {
     }
   }
 
+  cleanForm(){
+    this.curso = new CurseModel();
+  }
+
   showNotification(from, align, color, mensaje){
     const type = ['','info','success','warning','danger'];
 

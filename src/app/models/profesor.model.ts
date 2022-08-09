@@ -1,9 +1,25 @@
-class ProfesorModel extends PersonaModel{
+interface ProfesorModel extends PersonaModel{
     cursos: Array<CurseModel>;
+}
 
-    constructor(idPersona: number, nombre: string, apellido: string, email: string, tel: number, direccion: string, nacimiento: any, cursos: Array<CurseModel>) {
-        super(idPersona, nombre, apellido, email, tel, direccion, nacimiento);
+class ProfesorModel implements ProfesorModel {
+    apellido: string;
+    cursos: Array<CurseModel>;
+    direccion: string;
+    email: string;
+    idPersona: number;
+    nacimiento: Date;
+    nombre: string;
+    tel: number;
+
+    constructor(apellido: string, cursos: Array<CurseModel>, direccion: string, email: string, idPersona: number, nacimiento: Date, nombre: string, tel: number) {
+        this.apellido = apellido;
         this.cursos = cursos;
-
+        this.direccion = direccion;
+        this.email = email;
+        this.idPersona = idPersona;
+        this.nacimiento = nacimiento;
+        this.nombre = nombre;
+        this.tel = tel;
     }
 }
