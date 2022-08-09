@@ -58,6 +58,15 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-info btn-fill pull-right" >Actualizar</button>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="col-md-1 pull-right">
+            <a (click)="delete(estudiante)" class="btn btn-danger">Eliminar</a>
+        </div>
+        <div class="col-md-1 pull-right">
+            <button type="submit" class="btn btn-info btn-fill">Actualizar</button>
+        </div>
+    </div>
+
+    <!--<button type="submit" class="btn btn-info btn-fill pull-right" >Actualizar</button>-->
     <div class="clearfix"></div>
 </form>

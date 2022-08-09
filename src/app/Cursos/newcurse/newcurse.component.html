@@ -30,8 +30,9 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label>Horario</label>
-                <select class="form-select form-control" name="horario" [(ngModel)]="curso.horario" required>
-                    <option selected>Seleccione una opción</option>
+                <select class="form-select form-control" name="horario"
+                        [(ngModel)]="curso.horario"
+                        placeholder="Seleccione una opción" required>
                     <option value="07:00 - 09:00">07:00 - 09:00</option>
                     <option value="09:00 - 11:00">09:00 - 11:00</option>
                     <option value="11:00 - 13:00">11:00 - 13:00</option>

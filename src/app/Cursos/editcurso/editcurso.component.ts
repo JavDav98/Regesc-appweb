@@ -29,8 +29,9 @@ export class EditcursoComponent implements OnInit {
     }
   }
 
-  cleanForm(){
-    this.curso = new CurseModel();
+  delete(curs: CurseModel){
+    this.cursosService.deleteCurso(curs.idCurse);
+    this.curso = {idCurse: undefined, nombre: '', catedratico: '', seccion: '', horario: ''};
   }
 
   showNotification(from, align, color, mensaje){

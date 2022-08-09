@@ -37,6 +37,11 @@ export class EditstudentComponent implements OnInit {
     }
   }
 
+  delete(s: any){
+    this.estudianteService.deleteStudent(s.carnet);
+    this.estudiante = {};
+  }
+
   showNotification(from, align, color,ico, mensaje){
     const type = ['','info','success','warning','danger'];
 

@@ -39,6 +39,10 @@ export class CursosService {
     return this.cursos.find(curso => curso.idCurse == idCurso)
   }
 
+  deleteCurso(idcurso: number){
+    this.cursos.splice(this.cursos.findIndex(curso => curso.idCurse == idcurso), 1);
+  }
+
   agregarCurso(curso: CurseModel){
     curso.idCurse = Math.floor(Math.random() * ((30911899999+1) - 30911800000) + 30911800000);
     this.cursos.push(curso)
