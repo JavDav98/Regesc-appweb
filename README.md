@@ -1,5 +1,5 @@
 
-# DesarrolloWeb prueba
+# DesarrolloWeb
 
 Proyecto para la clase de DesarrolloWeb Sección A 2022
                                                                     
