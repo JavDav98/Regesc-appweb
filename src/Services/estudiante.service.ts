@@ -28,6 +28,14 @@ export class EstudianteService {
     return this.httpClient.put<PersonaModel>(url, JSON.stringify(p), {headers: headers});
   }
 
+  postNewPersona(p: PersonaModel): Observable<PersonaModel>{
+    let url: string = `${this.urlPersona}/new`;
+    let headers: any = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.httpClient.put<PersonaModel>(url, JSON.stringify(p), {headers: headers});
+  }
+
   getEstudiantes(): Observable<any>{
     let url: string = `${this.urlService}/all`
     return this.httpClient.get(url);

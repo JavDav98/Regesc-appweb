@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EstudianteService} from "../../../Services/estudiante.service";
 import {StudentModel} from "../../models/student.model";
+import {NgForm} from "@angular/forms";
 
 declare var $:any;
 
@@ -54,9 +55,9 @@ export class EditstudentComponent implements OnInit {
     }
   }
 
-  submit(formStudent: any, student: any){
-    if (formStudent.valid){/*
-      console.log(formStudent.value.toString());
+  submit(formStudent: NgForm, student: any){
+    if (formStudent.valid){
+      /*console.log(formStudent.value.toString());
       let aaaa: number = +student.fecha.toString().slice(0, -6);
       let mm: number = student.fecha.toString().slice(5, -3)-1;
       let dd: number = +student.fecha.toString().slice(-2);
