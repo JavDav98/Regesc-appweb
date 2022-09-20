@@ -1,3 +1,5 @@
+import {StudentModel} from "./student.model";
+
 class AsignacionModel{
     curso: CurseModel;
     alumno: StudentModel;

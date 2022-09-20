@@ -7,7 +7,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let estudiante of estudiantes">
-            <td>{{estudiante.carnet}}</td>
+            <td>{{estudiante.carnetstudent}}</td>
             <td>{{estudiante.nombre}}</td>
             <td>{{estudiante.apellido}}</td>
             <td>{{estudiante.email}}</td>
@@ -15,7 +15,7 @@
             <td>{{estudiante.direccion}}</td>
             <td>{{estudiante.nacimiento | date: 'dd/MM/yyyy': 'GMT-6': 'es-GT'}}</td>
             <td class="td-actions text-right">
-                <a rel="tooltip" title="Editar estudiante" class="btn btn-success btn-simple btn-xs" [routerLink]="['/nstudent/edit/'+estudiante.carnet]">
+                <a rel="tooltip" title="Editar estudiante" class="btn btn-success btn-simple btn-xs" [routerLink]="['/nstudent/edit/'+estudiante.cui]">
                     <i class="fa fa-edit"></i>
                 </a>
             </td>

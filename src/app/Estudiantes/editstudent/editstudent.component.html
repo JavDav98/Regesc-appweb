@@ -1,27 +1,27 @@
-<form (ngSubmit)="submit(formStudent, estudiante)" #formStudent="ngForm">
+<form (ngSubmit)="submit(formStudent, em)" #formStudent="ngForm">
     <div class="row">
         <div class="col-md-2">
             <div class="form-group">
                 <label>Carnet del estudiante</label>
-                <input type="text" class="form-control" name="carnet" [(ngModel)]="estudiante.carnet" disabled>
+                <input type="text" class="form-control" name="carnetstudent" [(ngModel)]="em.carnetstudent" disabled>
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
                 <label>CUI</label>
-                <input type="text" class="form-control" name="idPersona" [(ngModel)]="estudiante.idPersona" disabled>
+                <input type="text" class="form-control" name="cui" [(ngModel)]="em.cui" disabled>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label>Nombre</label>
-                <input type="text" class="form-control" name="nombre" [(ngModel)]="estudiante.nombre" required>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="em.nombre" required>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label>Apellido</label>
-                <input type="text" class="form-control" name="apellido" [(ngModel)]="estudiante.apellido" required>
+                <input type="text" class="form-control" name="apellido" [(ngModel)]="em.apellido" required>
             </div>
         </div>
     </div>
@@ -30,21 +30,21 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label>Correo</label>
-                <input type="text" class="form-control"  name="email" [(ngModel)]="estudiante.email" required>
+                <input type="text" class="form-control"  name="email" [(ngModel)]="em.email" required>
             </div>
         </div>
 
         <div class="col-md-2">
             <div class="form-group">
                 <label>Telefono</label>
-                <input type="text" class="form-control"  name="tel" [(ngModel)]="estudiante.tel" required>
+                <input type="text" class="form-control"  name="telefono" [(ngModel)]="em.telefono" required>
             </div>
         </div>
 
         <div class="col-md-5">
             <div class="form-group">
                 <label>Dirección</label>
-                <input type="text" class="form-control"  name="direccion" [(ngModel)]="estudiante.direccion" required>
+                <input type="text" class="form-control"  name="direccion" [(ngModel)]="em.direccion" required>
             </div>
         </div>
     </div>
@@ -53,14 +53,14 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label>Fecha de nacimiento</label>
-                <input type="date" class="form-control" name="fecha" [(ngModel)]="estudiante.fecha" required>
+                <input type="date" class="form-control" name="fecha" [(ngModel)]="em.fecha" required>
             </div>
         </div>
     </div>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <div class="col-md-1 pull-right">
-            <a (click)="delete(estudiante)" class="btn btn-danger">Eliminar</a>
+            <a (click)="delete(em)" class="btn btn-danger">Eliminar</a>
         </div>
         <div class="col-md-1 pull-right">
             <button type="submit" class="btn btn-info btn-fill">Actualizar</button>

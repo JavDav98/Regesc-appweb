@@ -15,6 +15,7 @@ export class NewstudentComponent implements OnInit {
   constructor(private estudianteService: EstudianteService) { }
 
   ngOnInit() {
+
   }
 
   submit(formStudent: NgForm, student: any){
@@ -23,7 +24,7 @@ export class NewstudentComponent implements OnInit {
       let mm: number = student.fecha.toString().slice(5, -3)-1;
       let dd: number = +student.fecha.toString().slice(-2);
       student.nacimiento = new Date(aaaa,mm,dd);
-      this.estudiante = this.estudianteService.agregarEstudiante(student);
+      //this.estudiante = this.estudianteService.agregarEstudiante(student);
       this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
     }else{
       this.showNotification('top','right', 4, 'pe-7s-close-circle',"Complete todos los campos");

@@ -10,7 +10,7 @@ declare var $:any;
   styleUrls: ['./editcurso.component.scss']
 })
 export class EditcursoComponent implements OnInit {
-  curso: CurseModel;
+  curso: any;
 
   constructor(private rutaActiva: ActivatedRoute,
               private cursosService: CursosService) { }
@@ -30,8 +30,8 @@ export class EditcursoComponent implements OnInit {
   }
 
   delete(curs: CurseModel){
-    this.cursosService.deleteCurso(curs.idCurse);
-    this.curso = {idCurse: undefined, nombre: '', catedratico: '', seccion: '', horario: ''};
+    //this.cursosService.deleteCurso(curs.idCurse);
+    //this.curso = {idCurse: undefined, nombre: '', catedratico: '', seccion: '', horario: ''};
   }
 
   showNotification(from, align, color, mensaje){
