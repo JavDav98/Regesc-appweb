@@ -21,7 +21,7 @@ export class EstudianteService {
   }
 
   putEditPersona(p: PersonaModel): Observable<PersonaModel>{
-    let url: string = `${this.urlService}/update`;
+    let url: string = `${this.urlPersona}/update`;
     let headers: any = new HttpHeaders({
       'Content-Type': 'application/json'
     });

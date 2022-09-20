@@ -31,7 +31,8 @@ export class ListstudentComponent implements OnInit {
     for (let p of pms){
       if(p.studentList.length > 0){
         //alert(p.nacimiento)
-        const [day, month, year] = p.nacimiento.toString().split('-');
+        //const [day, month, year] = p.nacimiento.toString().split('-');
+        const [year, month, day] = p.nacimiento.toString().split('-');
         p.nacimiento = new Date(+year, +month - 1, +day);
         s = p;
         s.carnetstudent = s.studentList[0].carnetstudent;
