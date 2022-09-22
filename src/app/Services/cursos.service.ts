@@ -8,7 +8,7 @@ export class CursosService {
   cursos: Array<any>;
 
   constructor() {
-    this.cursos = [
+   /* this.cursos = [
       {idcurso: 1, nombre: 'Precalculo', catedratico: 'Profe1', seccion: 'A', horario: '07:00 - 09:00'},
       {idcurso: 2, nombre: 'Calculo 1', catedratico: 'Profe2', seccion: 'B', horario: '09:00 - 11:00'},
       {idcurso: 3, nombre: 'Matemáticas discretas', catedratico: 'Profe3', seccion: 'A', horario: '11:00 - 13:00'},
@@ -19,9 +19,9 @@ export class CursosService {
       {idcurso: 8, nombre: 'Lógica de sistemas', catedratico: 'Profe8', seccion: 'B', horario: '11:00 - 13:00'},
       {idcurso: 9, nombre: 'Introducción a sistemas de computación', catedratico: 'Profe9', seccion: 'A', horario: '14:00 - 16:00'},
       {idcurso: 10, nombre: 'Algoritmos', catedratico: 'Profe10', seccion: 'B', horario: '16:00 - 18:00'}
-    ];
+    ];*/
   }
-
+/*
   getCursos(): Array<CurseModel>{
     return this.cursos;
   }
@@ -50,6 +50,6 @@ export class CursosService {
 
   editCurso(c: CurseModel){
     this.cursos[this.cursos.findIndex(curso => curso.idcurso == c.idcurso)] = c;
-  }
+  }*/
 
 }

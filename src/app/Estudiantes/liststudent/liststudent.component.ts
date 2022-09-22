@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {EstudianteService} from "../../../Services/estudiante.service";
+import {EstudianteService} from "../../Services/estudiante.service";
 import {Router} from "@angular/router";
 import {StudentModel} from "../../models/student.model";
 import {formatDate} from "@angular/common";
@@ -18,7 +18,7 @@ export class ListstudentComponent implements OnInit {
   constructor(private estudianteService: EstudianteService, private rout: Router) {
     this.estudianteService.getEstudiantesDatos().subscribe((result)=>{
       this.pms = result;
-      this.parsePersonaStudent(result);
+      //this.parsePersonaStudent(result);
     })
   }
 
@@ -26,7 +26,7 @@ export class ListstudentComponent implements OnInit {
     console.log('RESULTADO pms fuera del observable' + JSON.stringify(this.pms))
   }
 
-  parsePersonaStudent(pms: PersonaModel[]){
+  /*parsePersonaStudent(pms: PersonaModel[]){
     let s: StudentModel;
     for (let p of pms){
       if(p.studentList.length > 0){
@@ -42,6 +42,6 @@ export class ListstudentComponent implements OnInit {
       }
     }
 
-  }
+  }*/
 
 }

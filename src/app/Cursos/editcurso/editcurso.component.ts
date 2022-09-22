@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import {CursosService} from "../../../Services/cursos.service";
+import {CursosService} from "../../Services/cursos.service";
 
 declare var $:any;
 
@@ -17,12 +17,12 @@ export class EditcursoComponent implements OnInit {
 
   ngOnInit(): void {
     const idC = this.rutaActiva.snapshot.paramMap.get('id');
-    this.curso = this.cursosService.getCursoId(idC);
+    //this.curso = this.cursosService.getCursoId(idC);
   }
 
   submit(formCurse: any, curse: CurseModel){
     if (formCurse.valid){
-      this.cursosService.editCurso(curse);
+      //this.cursosService.editCurso(curse);
       this.showNotification('top','right', 2, "Curso actualizado");
     }else{
       this.showNotification('top','right', 4, "Complete todos los campos");

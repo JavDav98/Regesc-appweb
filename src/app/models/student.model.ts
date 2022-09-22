@@ -1,6 +1,6 @@
-export interface StudentModel extends PersonaModel {
-    carnetstudent?: number,
+export interface StudentModel {
+    id?: number,
     usuario?: string,
     password?: string,
-    matriculaestudianteList?: any[]
+    personaCui?: number
 }

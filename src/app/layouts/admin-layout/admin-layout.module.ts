@@ -24,7 +24,7 @@ import { NstudentComponent } from '../../Estudiantes/nstudent/nstudent.component
 import { EditstudentComponent } from '../../Estudiantes/editstudent/editstudent.component';
 import { ListstudentComponent } from '../../Estudiantes/liststudent/liststudent.component';
 import { NewstudentComponent } from '../../Estudiantes/newstudent/newstudent.component';
-import {CursosService} from "../../../Services/cursos.service";
+import {CursosService} from "../../Services/cursos.service";
 
 @NgModule({
   imports: [

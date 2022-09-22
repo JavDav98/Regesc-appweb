@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CursosService} from "../../../Services/cursos.service";
+import {CursosService} from "../../Services/cursos.service";
 import {NgForm} from '@angular/forms';
 
 declare var $:any;
@@ -19,12 +19,12 @@ export class NewcurseComponent implements OnInit {
 
 
   submit(formCurse: NgForm, curse: any){
-    if (formCurse.valid){
+    /*if (formCurse.valid){
       this.curso = this.cursosService.agregarCurso(curse);
       this.showNotification('top','right', 2, 'pe-7s-check',"Curso Creado");
     }else{
       this.showNotification('top','right', 4, 'pe-7s-close-circle',"Complete todos los campos");
-    }
+    }*/
   }
 
   cleanForm(){

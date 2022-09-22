@@ -1,11 +1,11 @@
 interface PersonaModel{
-    cui?: number,
+    id?: number,
     nombre?: string,
     apellido?: string,
     telefono?: number,
     direccion?: string,
     nacimiento?: Date,
     email?: string,
-    studentList?: any[],
-    profesorList?: any[],
+    students?: any[],
+    profesors?: any[],
 }
