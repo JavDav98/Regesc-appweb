@@ -3,6 +3,7 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { DatePipe } from '@angular/common'
 
 import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
@@ -35,6 +36,7 @@ registerLocaleData(localePy, 'es-GT');
     AdminLayoutComponent,
   ],
   providers: [
+    DatePipe,
     {provide: LOCALE_ID, useValue: 'es-GT'}
   ],
   bootstrap: [AppComponent]

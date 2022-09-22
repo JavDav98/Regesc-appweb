@@ -24,11 +24,9 @@ export class NewstudentComponent implements OnInit {
 
   submit(formStudent: NgForm, student: any){
     if (formStudent.valid){
-      /*let aaaa: number = +student.fecha.toString().slice(0, -6);
-      let mm: number = student.fecha.toString().slice(5, -3)-1;
-      let dd: number = +student.fecha.toString().slice(-2);
-      */
-      this.p.nacimiento = student.fecha;
+      const [year, month, day] = student.fecha.split('-');
+      //this.em.nacimiento = new Date(+year, +month - 1, +day);
+      this.p.nacimiento = new Date(+year, +month - 1, +day);
       this.p.cui = student.cui;
       this.p.nombre = student.nombre;
       this.p.apellido = student.apellido;
@@ -44,8 +42,9 @@ export class NewstudentComponent implements OnInit {
       this.p.profesors = [];
       alert(JSON.stringify(this.p))
       this.estudianteService.postNewPersona(this.p).subscribe((result)=>{
-
-        this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
+        this.estudianteService.postNewStudent(this.p.students[0]).subscribe((s)=>{
+          this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
+        })
       })
       //this.estudiante = this.estudianteService.agregarEstudiante(student);
     }else{

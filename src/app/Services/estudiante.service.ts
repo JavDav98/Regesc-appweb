@@ -32,11 +32,16 @@ export class EstudianteService {
     let headers: any = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    this.httpClient.post(`${this.urlPersona}/new`, JSON.stringify(p), {headers: headers});
-    if (p.students.length>0){
-      this.httpClient.post(`${this.urlService}/new`, JSON.stringify(p.students[0]), {headers: headers});
-    }
-    return this.httpClient.get<PersonaModel>(`${this.urlPersona}/find/by/cui/${p.cui}`);
+
+    return this.httpClient.post(`${this.urlPersona}/new`, JSON.stringify(p), {headers: headers});
+  }
+
+  postNewStudent(p: StudentModel): Observable<StudentModel> {
+    let headers: any = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.httpClient.post(`${this.urlService}/new`, JSON.stringify(p), {headers: headers});
   }
 
   getEstudiantes(): Observable<any>{

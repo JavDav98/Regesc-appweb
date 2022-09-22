@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EstudianteService} from "../../Services/estudiante.service";
 import {NgForm} from "@angular/forms";
+import {DatePipe} from "@angular/common";
 
 declare var $:any;
 
@@ -17,7 +18,8 @@ export class EditstudentComponent implements OnInit {
 
   constructor(private rutaActiva: ActivatedRoute,
               private estudianteService: EstudianteService,
-              private rout: Router) {
+              private rout: Router,
+              private datepipe: DatePipe) {
 
 
   }
@@ -27,11 +29,11 @@ export class EditstudentComponent implements OnInit {
     try{
       this.estudianteService.getEstudiantesDatosInd(+idCui).subscribe(result=>{
         this.em = result;
-        const [day, month, year] = result.nacimiento.toString().split('-');
+        //const [day, month, year] = result.nacimiento.toString().split('-');
         //const [year, month, day] = result.nacimiento.toString().split('-');
-        this.em.nacimiento = new Date(+year, +month - 1, +day);
+        //this.em.nacimiento = new Date(+year, +month - 1, +day);
         this.em = Object.assign(this.em, result.students[0]);
-        let daystring: string = '';
+        /*let daystring: string = '';
         if (+day < 10){
           daystring = '0'+this.em.nacimiento.getDate();
         }else{
@@ -43,9 +45,10 @@ export class EditstudentComponent implements OnInit {
         }else{
           monthstring = month;
         }
-        let yearstring = year;
+        let yearstring = year;*/
         //this.em.fecha = `${year}-${month}-${day} year-month-day`;
-        this.em.fecha = year+'-'+month+'-'+day;
+        //this.em.fecha = year+'-'+month+'-'+day;
+        this.em.fecha = this.datepipe.transform(this.em.nacimiento, 'yyyy-MM-dd');
       })
     }catch (e){
       console.log(`Error: ${e}`)
@@ -54,7 +57,9 @@ export class EditstudentComponent implements OnInit {
 
   submit(formStudent: NgForm, student: any){
     if (formStudent.valid){
-      this.p.nacimiento = student.fecha;
+      const [year, month, day] = student.fecha.split('-');
+      //this.em.nacimiento = new Date(+year, +month - 1, +day);
+      this.p.nacimiento = new Date(+year, +month - 1, +day);
       this.p.cui = student.cui;
       this.p.nombre = student.nombre;
       this.p.apellido = student.apellido;
@@ -63,6 +68,7 @@ export class EditstudentComponent implements OnInit {
       this.p.direccion = student.direccion;
       this.p.studentList = [];
       this.p.profesorList = [];
+      alert(JSON.stringify(this.p))
       this.estudianteService.putEditPersona(this.p).subscribe((result)=>{
 
       });
