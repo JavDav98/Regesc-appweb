@@ -1,5 +1,5 @@
 interface PersonaModel{
-    id?: number,
+    cui?: number,
     nombre?: string,
     apellido?: string,
     telefono?: number,

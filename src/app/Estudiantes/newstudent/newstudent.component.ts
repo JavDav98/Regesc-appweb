@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EstudianteService} from "../../Services/estudiante.service";
 import {NgForm} from '@angular/forms';
 import {Router} from "@angular/router";
+import {StudentModel} from "../../models/student.model";
 
 declare var $:any;
 
@@ -34,10 +35,16 @@ export class NewstudentComponent implements OnInit {
       this.p.email = student.email;
       this.p.telefono = student.telefono;
       this.p.direccion = student.direccion;
-      this.p.studentList = [];
-      this.p.profesorList = [];
+      let s: any = {};
+      s.usuario = student.usuario;
+      s.password = student.password;
+      s.personaCui = student.cui;
+      this.p.students = [];
+      this.p.students.push(s);
+      this.p.profesors = [];
       alert(JSON.stringify(this.p))
       this.estudianteService.postNewPersona(this.p).subscribe((result)=>{
+
         this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
       })
       //this.estudiante = this.estudianteService.agregarEstudiante(student);

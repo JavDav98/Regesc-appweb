@@ -28,22 +28,20 @@ export class EstudianteService {
     return this.httpClient.put<PersonaModel>(url, JSON.stringify(p), {headers: headers});
   }
 
-  postNewPersona(p: PersonaModel): Observable<PersonaModel>{
-    let url: string = `${this.urlPersona}/new`;
+  postNewPersona(p: PersonaModel): Observable<PersonaModel> {
     let headers: any = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.httpClient.put<PersonaModel>(url, JSON.stringify(p), {headers: headers});
+    this.httpClient.post(`${this.urlPersona}/new`, JSON.stringify(p), {headers: headers});
+    if (p.students.length>0){
+      this.httpClient.post(`${this.urlService}/new`, JSON.stringify(p.students[0]), {headers: headers});
+    }
+    return this.httpClient.get<PersonaModel>(`${this.urlPersona}/find/by/cui/${p.cui}`);
   }
 
   getEstudiantes(): Observable<any>{
     let url: string = `${this.urlService}/all`
     return this.httpClient.get(url);
-  }
-
-  getPersonas(): Observable<PersonaModel[]>{
-    let url: string = `${this.urlPersona}/all`
-    return this.httpClient.get<PersonaModel[]>(url);
   }
 
   getEstudiantesDatos(): Observable<PersonaModel[]>{
@@ -61,6 +59,11 @@ export class EstudianteService {
     alert(url)
     return this.httpClient.get(url);
   }
+
+  /*postNewStudent(s: StudentModel): Observable<StudentModel>{
+    return
+  }*/
+
 
 /*
   deleteStudent(carnet: number){

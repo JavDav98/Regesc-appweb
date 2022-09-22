@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EstudianteService} from "../../Services/estudiante.service";
-import {StudentModel} from "../../models/student.model";
 import {NgForm} from "@angular/forms";
 
 declare var $:any;
@@ -28,12 +27,10 @@ export class EditstudentComponent implements OnInit {
     try{
       this.estudianteService.getEstudiantesDatosInd(+idCui).subscribe(result=>{
         this.em = result;
-        //const [day, month, year] = result.nacimiento.toString().split('-');
-        const [year, month, day] = result.nacimiento.toString().split('-');
+        const [day, month, year] = result.nacimiento.toString().split('-');
+        //const [year, month, day] = result.nacimiento.toString().split('-');
         this.em.nacimiento = new Date(+year, +month - 1, +day);
-        this.em.carnetstudent = this.em.studentList[0].carnetstudent;
-        this.em.usuario = this.em.studentList[0].usuario;
-        this.em.password = this.em.studentList[0].password;
+        this.em = Object.assign(this.em, result.students[0]);
         let daystring: string = '';
         if (+day < 10){
           daystring = '0'+this.em.nacimiento.getDate();
@@ -57,11 +54,6 @@ export class EditstudentComponent implements OnInit {
 
   submit(formStudent: NgForm, student: any){
     if (formStudent.valid){
-      /*console.log(formStudent.value.toString());
-      let aaaa: number = +student.fecha.toString().slice(0, -6);
-      let mm: number = student.fecha.toString().slice(5, -3)-1;
-      let dd: number = +student.fecha.toString().slice(-2);
-      console.log(`Año ${aaaa}, Mes ${mm}, Dia ${dd}`);*/
       this.p.nacimiento = student.fecha;
       this.p.cui = student.cui;
       this.p.nombre = student.nombre;
@@ -71,11 +63,9 @@ export class EditstudentComponent implements OnInit {
       this.p.direccion = student.direccion;
       this.p.studentList = [];
       this.p.profesorList = [];
-      //this.estudianteService.editEstudiante(student);
       this.estudianteService.putEditPersona(this.p).subscribe((result)=>{
 
       });
-      alert(JSON.stringify(this.p));
       this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
     }else{
       this.showNotification('top','right', 4, 'pe-7s-close-circle',"Complete todos los campos");

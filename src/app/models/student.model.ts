@@ -1,5 +1,5 @@
 export interface StudentModel {
-    id?: number,
+    carnet?: number,
     usuario?: string,
     password?: string,
     personaCui?: number
