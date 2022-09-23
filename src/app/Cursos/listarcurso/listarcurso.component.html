@@ -7,13 +7,13 @@
         </thead>
         <tbody>
             <tr *ngFor="let curso of cursos">
-                <td>{{curso.idCurse}}</td>
+                <td>{{curso.idcurso}}</td>
                 <td>{{curso.nombre}}</td>
-                <td>{{curso.catedratico}}</td>
+                <td>{{curso.nombreCatedratico}}</td>
                 <td>{{curso.seccion}}</td>
                 <td>{{curso.horario}}</td>
                 <td class="td-actions text-right">
-                    <a rel="tooltip" title="Editar curso" class="btn btn-success btn-simple btn-xs" [routerLink]="['/ncurso/edit/'+curso.idCurse]">
+                    <a rel="tooltip" title="Editar curso" class="btn btn-success btn-simple btn-xs" [routerLink]="['/ncurso/edit/'+curso.idcurso]">
                         <i class="fa fa-edit"></i>
                     </a>
                 </td>

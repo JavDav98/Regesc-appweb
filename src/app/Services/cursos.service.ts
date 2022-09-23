@@ -1,55 +1,30 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {StudentModel} from "../models/student.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CursosService {
 
-  cursos: Array<any>;
+  private cursos: CurseModel[];
+  private urlService = 'http://localhost:8585/curso';
+  private httpHeaders = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  });
 
-  constructor() {
-   /* this.cursos = [
-      {idcurso: 1, nombre: 'Precalculo', catedratico: 'Profe1', seccion: 'A', horario: '07:00 - 09:00'},
-      {idcurso: 2, nombre: 'Calculo 1', catedratico: 'Profe2', seccion: 'B', horario: '09:00 - 11:00'},
-      {idcurso: 3, nombre: 'Matemáticas discretas', catedratico: 'Profe3', seccion: 'A', horario: '11:00 - 13:00'},
-      {idcurso: 4, nombre: 'Programación 1', catedratico: 'Profe4', seccion: 'B', horario: '14:00 - 16:00'},
-      {idcurso: 5, nombre: 'Programación 2', catedratico: 'Profe5', seccion: 'A', horario: '16:00 - 18:00'},
-      {idcurso: 6, nombre: 'Programación 3', catedratico: 'Profe6', seccion: 'B', horario: '07:00 - 09:00'},
-      {idcurso: 7, nombre: 'Ética', catedratico: 'Profe7', seccion: 'A', horario: '09:00 - 11:00'},
-      {idcurso: 8, nombre: 'Lógica de sistemas', catedratico: 'Profe8', seccion: 'B', horario: '11:00 - 13:00'},
-      {idcurso: 9, nombre: 'Introducción a sistemas de computación', catedratico: 'Profe9', seccion: 'A', horario: '14:00 - 16:00'},
-      {idcurso: 10, nombre: 'Algoritmos', catedratico: 'Profe10', seccion: 'B', horario: '16:00 - 18:00'}
-    ];*/
-  }
-/*
-  getCursos(): Array<CurseModel>{
-    return this.cursos;
+  constructor(private httpClient: HttpClient) { }
+
+  getCursos(): Observable<CurseModel[]>{
+    let url: string = `${this.urlService}/all`
+    return this.httpClient.get<CurseModel[]>(url);
   }
 
-  getCurso(c: CurseModel): CurseModel{
-    for (let curso of this.cursos){
-      if (curso == c){
-        return curso
-      }
-    }
+  getCurso(idcurso: number): Observable<CurseModel>{
+    let url: string = `${this.urlService}/find/by/idcurso/${idcurso}`
+    return this.httpClient.get<CurseModel>(url);
   }
-
-  getCursoId(idCurso){
-    return this.cursos.find(curso => curso.idcurso == idCurso)
-  }
-
-  deleteCurso(idcurso: number){
-    this.cursos.splice(this.cursos.findIndex(curso => curso.idcurso == idcurso), 1);
-  }
-
-  agregarCurso(curso: CurseModel){
-    curso.idcurso = Math.floor(Math.random() * ((30911899999+1) - 30911800000) + 30911800000);
-    this.cursos.push(curso)
-    return curso;
-  }
-
-  editCurso(c: CurseModel){
-    this.cursos[this.cursos.findIndex(curso => curso.idcurso == c.idcurso)] = c;
-  }*/
 
 }

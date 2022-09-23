@@ -1,5 +1,5 @@
 interface CurseModel{
-    id: number,
+    idcurso: number,
     nombre: string,
     seccion: string,
     horario: string,

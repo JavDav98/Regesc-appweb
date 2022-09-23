@@ -1,9 +1,29 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {ProfesorModel} from "../models/profesor.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfesorService {
 
-  constructor() { }
+  private profesores: ProfesorModel[];
+  private urlService = 'http://localhost:8585/profesor';
+  private urlPersona = 'http://localhost:8585/profesor';
+  private httpHeaders = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  });
+
+  constructor(private httpClient: HttpClient) {
+
+  }
+
+  getProfesorFindByCarnet(carnet: number): Observable<PersonaModel>{
+    let url = `${this.urlPersona}/datos/completos/${carnet}`;
+    return this.httpClient.get<PersonaModel>(url);
+  }
+
+
 }

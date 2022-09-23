@@ -27,12 +27,6 @@ export class ListstudentComponent implements OnInit {
     let s: any;
     for (let p of pms) {
       if (p.students.length > 0) {
-        //alert(JSON.stringify(p))
-        //const [day, month, year] = p.nacimiento.toString().split('-');
-        //const [year, month, day] = p.nacimiento.toString().split('-');
-        //const [year, month, day] = p.nacimiento.toLocaleDateString("es-GT").split('-');
-        //p.nacimiento = new Date('1998-06-25T00:00:00.000-0600')
-        //p.nacimiento = new Date(+year, +month - 1, +day);
         s = Object.assign(p, p.students[0]);
         this.estudiantes.push(s);
       }

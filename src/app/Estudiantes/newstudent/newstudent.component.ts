@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {EstudianteService} from "../../Services/estudiante.service";
 import {NgForm} from '@angular/forms';
 import {Router} from "@angular/router";
-import {StudentModel} from "../../models/student.model";
 
 declare var $:any;
 
@@ -25,7 +24,6 @@ export class NewstudentComponent implements OnInit {
   submit(formStudent: NgForm, student: any){
     if (formStudent.valid){
       const [year, month, day] = student.fecha.split('-');
-      //this.em.nacimiento = new Date(+year, +month - 1, +day);
       this.p.nacimiento = new Date(+year, +month - 1, +day);
       this.p.cui = student.cui;
       this.p.nombre = student.nombre;
@@ -46,7 +44,6 @@ export class NewstudentComponent implements OnInit {
           this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");
         })
       })
-      //this.estudiante = this.estudianteService.agregarEstudiante(student);
     }else{
       this.showNotification('top','right', 4, 'pe-7s-close-circle',"Complete todos los campos");
     }
@@ -58,7 +55,6 @@ export class NewstudentComponent implements OnInit {
 
   showNotification(from, align, color,ico, mensaje){
     const type = ['','info','success','warning','danger'];
-
     $.notify({
       icon: ico,
       message: mensaje

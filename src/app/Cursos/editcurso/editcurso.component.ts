@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import {CursosService} from "../../Services/cursos.service";
+import {ProfesorService} from "../../Services/profesor.service";
 
 declare var $:any;
 
@@ -13,11 +14,18 @@ export class EditcursoComponent implements OnInit {
   curso: any;
 
   constructor(private rutaActiva: ActivatedRoute,
-              private cursosService: CursosService) { }
+              private cursosService: CursosService,
+              private profesorService: ProfesorService) { }
 
   ngOnInit(): void {
     const idC = this.rutaActiva.snapshot.paramMap.get('id');
-    //this.curso = this.cursosService.getCursoId(idC);
+    this.curso = this.cursosService.getCurso(+idC).subscribe((result)=>{
+      this.profesorService.getProfesorFindByCarnet(result.matriculaprofesors[0].profesorCarnetprofesor)
+          .subscribe((p)=>{
+            this.curso = result;
+            this.curso.nombreCatedratico = `${p.nombre} ${p.apellido}`
+      })
+    });
   }
 
   submit(formCurse: any, curse: CurseModel){

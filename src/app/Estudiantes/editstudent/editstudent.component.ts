@@ -29,25 +29,7 @@ export class EditstudentComponent implements OnInit {
     try{
       this.estudianteService.getEstudiantesDatosInd(+idCui).subscribe(result=>{
         this.em = result;
-        //const [day, month, year] = result.nacimiento.toString().split('-');
-        //const [year, month, day] = result.nacimiento.toString().split('-');
-        //this.em.nacimiento = new Date(+year, +month - 1, +day);
         this.em = Object.assign(this.em, result.students[0]);
-        /*let daystring: string = '';
-        if (+day < 10){
-          daystring = '0'+this.em.nacimiento.getDate();
-        }else{
-          daystring = day;
-        }
-        let monthstring:string;
-        if (this.em.nacimiento.getMonth()<10){
-          monthstring ='0'+month;
-        }else{
-          monthstring = month;
-        }
-        let yearstring = year;*/
-        //this.em.fecha = `${year}-${month}-${day} year-month-day`;
-        //this.em.fecha = year+'-'+month+'-'+day;
         this.em.fecha = this.datepipe.transform(this.em.nacimiento, 'yyyy-MM-dd');
       })
     }catch (e){
@@ -58,7 +40,6 @@ export class EditstudentComponent implements OnInit {
   submit(formStudent: NgForm, student: any){
     if (formStudent.valid){
       const [year, month, day] = student.fecha.split('-');
-      //this.em.nacimiento = new Date(+year, +month - 1, +day);
       this.p.nacimiento = new Date(+year, +month - 1, +day);
       this.p.cui = student.cui;
       this.p.nombre = student.nombre;
@@ -79,13 +60,11 @@ export class EditstudentComponent implements OnInit {
   }
 
   delete(s: any){
-    //this.estudianteService.deleteStudent(s.carnet);
     this.em = {};
   }
 
   showNotification(from, align, color,ico, mensaje){
     const type = ['','info','success','warning','danger'];
-
     $.notify({
       icon: ico,
       message: mensaje
