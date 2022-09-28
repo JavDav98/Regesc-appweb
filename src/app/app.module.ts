@@ -16,6 +16,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 
 import localePy from '@angular/common/locales/es-GQ'
 import {registerLocaleData} from "@angular/common";
+import {AdminLayoutRoutes} from "./layouts/admin-layout/admin-layout.routing";
 registerLocaleData(localePy, 'es-GT');
 
 
@@ -24,7 +25,7 @@ registerLocaleData(localePy, 'es-GT');
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule.forRoot(AdminLayoutRoutes, {useHash: false}),
     HttpClientModule,
     NavbarModule,
     FooterModule,
