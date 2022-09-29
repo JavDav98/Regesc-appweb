@@ -3,7 +3,7 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { DatePipe } from '@angular/common'
+import {APP_BASE_HREF, DatePipe} from '@angular/common'
 
 import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';

@@ -60,7 +60,10 @@ export class EditstudentComponent implements OnInit {
   }
 
   delete(s: any){
-    this.em = {};
+    this.estudianteService.deleteStudent(this.em.carnet).subscribe((result)=>{
+      this.showNotification('top','right', 4, 'pe-7s-close-circle',`El estudiante ${this.em.carnet} fue eliminado`);
+      this.em = {};
+    })
   }
 
   showNotification(from, align, color,ico, mensaje){

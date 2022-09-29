@@ -10,8 +10,8 @@ import {StudentModel} from "../models/student.model";
 export class EstudianteService {
 
   private estudiantes: StudentModel[];
-  private urlService = 'http://localhost:8585/estudiante';
-  private urlPersona = 'http://localhost:8585/persona';
+  private urlService = '/api/estudiante';
+  private urlPersona = '/api/persona';
   private httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -63,6 +63,12 @@ export class EstudianteService {
     let url: string = `${this.urlService}/find/by/carnet/${carnet}`;
     alert(url)
     return this.httpClient.get(url);
+  }
+
+  deleteStudent(carnet: number): Observable<StudentModel>{
+    let url: string = `${this.urlService}/delete/${carnet}`;
+    alert(url)
+    return this.httpClient.delete<StudentModel>(url);
   }
 
   /*postNewStudent(s: StudentModel): Observable<StudentModel>{
