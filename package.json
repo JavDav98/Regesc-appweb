@@ -15,7 +15,7 @@
     "dependencies": {
         "@angular/animations": "^13.2.6",
         "@angular/cdk": "^13.2.6",
-        "@angular/common": "^13.2.6",
+        "@angular/common": "^13.3.11",
         "@angular/compiler": "^13.2.6",
         "@angular/core": "^13.2.6",
         "@angular/elements": "^13.2.6",
@@ -36,6 +36,8 @@
         "core-js": "3.8.1",
         "googleapis": "66.0.0",
         "jquery": "3.5.1",
+        "keycloak-angular": "^12.1.0",
+        "keycloak-js": "^20.0.0",
         "perfect-scrollbar": "1.5.0",
         "rxjs": "^7.5.5",
         "zone.js": "~0.11.5"

@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {LOCALE_ID, NgModule} from '@angular/core';
+import {APP_INITIALIZER, LOCALE_ID, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar.module';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 import { AppComponent } from './app.component';
 
@@ -19,6 +20,21 @@ import {registerLocaleData} from "@angular/common";
 import {AdminLayoutRoutes} from "./layouts/admin-layout/admin-layout.routing";
 registerLocaleData(localePy, 'es-GT');
 
+function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
+      keycloak.init({
+        config: {
+          url: 'http://localhost:8080',
+          realm: 'RegescKeycloak',
+          clientId: 'regesc-webapp'
+        },
+        initOptions: {
+          onLoad: 'check-sso',
+          silentCheckSsoRedirectUri:
+              window.location.origin + '/assets/silent-check-sso.html'
+        }
+      });
+}
 
 @NgModule({
   imports: [
@@ -30,7 +46,8 @@ registerLocaleData(localePy, 'es-GT');
     NavbarModule,
     FooterModule,
     SidebarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    KeycloakAngularModule
   ],
   declarations: [
     AppComponent,
@@ -38,8 +55,15 @@ registerLocaleData(localePy, 'es-GT');
   ],
   providers: [
     DatePipe,
-    {provide: LOCALE_ID, useValue: 'es-GT'}
-  ],
+    {provide: LOCALE_ID, useValue: 'es-GT'},
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService]
+    }
+
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
