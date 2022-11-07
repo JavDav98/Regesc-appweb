@@ -9,7 +9,7 @@ import {StudentModel} from "../models/student.model";
 export class CursosService {
 
   private cursos: CurseModel[];
-  private urlService = 'http://localhost:8585/curso';
+  private urlService = '/api/curso';
   private httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Accept': 'application/json'
