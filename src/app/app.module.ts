@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {APP_INITIALIZER, LOCALE_ID, NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 import { AppComponent } from './app.component';
 
@@ -20,21 +19,6 @@ import {registerLocaleData} from "@angular/common";
 import {AdminLayoutRoutes} from "./layouts/admin-layout/admin-layout.routing";
 registerLocaleData(localePy, 'es-GT');
 
-function initializeKeycloak(keycloak: KeycloakService) {
-  return () =>
-      keycloak.init({
-        config: {
-          url: 'http://localhost:8080',
-          realm: 'RegescKeycloak',
-          clientId: 'regesc-webapp'
-        },
-        initOptions: {
-          onLoad: 'check-sso',
-          silentCheckSsoRedirectUri:
-              window.location.origin + '/assets/silent-check-sso.html'
-        }
-      });
-}
 
 @NgModule({
   imports: [
@@ -46,8 +30,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     NavbarModule,
     FooterModule,
     SidebarModule,
-    AppRoutingModule,
-    KeycloakAngularModule
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
@@ -55,15 +38,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
   ],
   providers: [
     DatePipe,
-    {provide: LOCALE_ID, useValue: 'es-GT'},
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeKeycloak,
-      multi: true,
-      deps: [KeycloakService]
-    }
-
-],
+    {provide: LOCALE_ID, useValue: 'es-GT'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

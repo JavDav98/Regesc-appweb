@@ -25,6 +25,7 @@ import { EditstudentComponent } from '../../Estudiantes/editstudent/editstudent.
 import { ListstudentComponent } from '../../Estudiantes/liststudent/liststudent.component';
 import { NewstudentComponent } from '../../Estudiantes/newstudent/newstudent.component';
 import {CursosService} from "../../Services/cursos.service";
+import {AuthModule} from "../../auth/auth.module";
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import {CursosService} from "../../Services/cursos.service";
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     LbdModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
+    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'}),
+    AuthModule
   ],
   declarations: [
     HomeComponent,

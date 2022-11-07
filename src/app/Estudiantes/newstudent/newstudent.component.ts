@@ -38,7 +38,8 @@ export class NewstudentComponent implements OnInit {
       this.p.students = [];
       this.p.students.push(s);
       this.p.profesors = [];
-      alert(JSON.stringify(this.p))
+
+
       this.estudianteService.postNewPersona(this.p).subscribe((result)=>{
         this.estudianteService.postNewStudent(this.p.students[0]).subscribe((s)=>{
           this.showNotification('top','right', 2, 'pe-7s-check',"Estudiante actualizado");

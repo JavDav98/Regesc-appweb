@@ -9,8 +9,8 @@ import {ProfesorModel} from "../models/profesor.model";
 export class ProfesorService {
 
   private profesores: ProfesorModel[];
-  private urlService = 'http://localhost:8585/profesor';
-  private urlPersona = 'http://localhost:8585/profesor';
+  private urlService = '/api/profesor';
+  private urlPersona = '/api/profesor';
   private httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Accept': 'application/json'

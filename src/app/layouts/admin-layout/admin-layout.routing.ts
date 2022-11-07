@@ -15,12 +15,18 @@ import { NstudentComponent } from '../../Estudiantes/nstudent/nstudent.component
 import { EditstudentComponent } from '../../Estudiantes/editstudent/editstudent.component';
 import { ListstudentComponent } from '../../Estudiantes/liststudent/liststudent.component';
 import { NewstudentComponent } from '../../Estudiantes/newstudent/newstudent.component';
+import {AuthGuard} from "../../auth/auth.guard";
 
 export let AdminLayoutRoutes: Routes;
 AdminLayoutRoutes = [
     {path: 'dashboard', component: HomeComponent},
     {path: 'user', component: UserComponent},
-    {path: 'table', component: TablesComponent},
+    {
+        path: 'table',
+        component: TablesComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ["list-student"] }
+    },
     {path: 'typography', component: TypographyComponent},
     {path: 'icons', component: IconsComponent},
     {path: 'maps', component: MapsComponent},
